@@ -1,104 +1,125 @@
-import React from 'react'
-import Card from "@/app/components/Card"
-import Button from "@/app/components/Button"
+import React from "react";
+import Card from "@/app/components/Card";
+import Button from "@/app/components/Button";
+import SkillBadge from "@/app/components/SkillBadge";
 const Home = () => {
-   const today = new Date();
-   const dateString = today.toLocaleDateString("en-IN", {
-     weekday: "long",
-     year: "numeric",
-     month: "long",
-     day: "numeric",
-   });
+  const today = new Date();
+  const dateString = today.toLocaleDateString("en-IN", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const skills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Git",
+    "Tailwind CSS",
+  ];
+  const projects = [
+    {
+      id: 1,
+      title: "Personal Blog",
+      description:
+        "A blog built with Next.js where I write about my developer journey and things I learn every day.",
+    },
+    {
+      id: 2,
+      title: "Task Manager",
+      description:
+        "A full-stack task management app with GitHub login, and the ability to create and delete tasks.",
+    },
+    {
+      id: 3,
+      title: "Portfolio Site",
+      description:
+        "This portfolio website built with Next.js to showcase my skills, projects, and contact information.",
+    },
+  ];
   return (
     <div>
-      <h1 style={{ fontSize: "40px", marginBottom: "8px" }}>
-        Hi, I am Sahil 👋
-      </h1>
-      <p style={{ fontSize: "18px", color: "#555", marginBottom: "24px" }}>
-        Full-stack developer in training — learning Next.js to get a job
-      </p>
-      <p style={{ color: "#888" }}>Today is {dateString}</p>
-      <div
+      {/* Hero Section */}
+      <section
         style={{
-          backgroundColor: "#f0f7ff",
-          border: "1px solid #0070f3",
-          borderRadius: "8px",
-          padding: "20px",
-          marginTop: "32px",
+          paddingBottom: "48px",
+          borderBottom: "1px solid #eee",
+          marginBottom: "48px",
         }}
       >
-        <h2 style={{ marginTop: "0" }}>What I am building</h2>
-        <p>
-          I am on a 10-week journey to master Next.js and land my first
-          developer job.
+        <p style={{ color: "#999", fontSize: "14px", margin: "0 0 8px" }}>
+          {dateString}
         </p>
-        <p>
-          Check out my{" "}
-          <a href="/blog" style={{ color: "#0070f3" }}>
-            blog
-          </a>{" "}
-          to follow along, or visit my{" "}
-          <a href="/about" style={{ color: "#0070f3" }}>
-            about page
-          </a>{" "}
-          to know more.
+        <h1
+          style={{
+            fontSize: "48px",
+            fontWeight: "bold",
+            margin: "0 0 16px",
+            color: "#111",
+            lineHeight: "1.1",
+          }}
+        >
+          Hi, I am
+          <br />
+          Sahil Thakur 👋
+        </h1>
+        <p
+          style={{
+            fontSize: "20px",
+            color: "#555",
+            maxWidth: "540px",
+            lineHeight: "1.6",
+            margin: "0 0 28px",
+          }}
+        >
+          I am a full-stack developer in training, learning Next.js to land my
+          first developer job. I study every day and build real projects.
         </p>
-      </div>
-      <div style={{ marginTop: "20px", display: "flex", gap: "12px" }}>
-        <Button
-          label="View My Blog"
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+          <Button label="See My Blog" color={"red"} />
+          <Button label="Contact Me" color="#28a745" />
+          <Button label="View GitHub" color="#333" />
+        </div>
+      </section>
 
-          color={"red"}
-        />
-        <Button
-          label="Contact Me"
-          color="#111"
+      {/* Skills Section */}
+      <section style={{ marginBottom: "48px" }}>
+        <h2 style={{ fontSize: "24px", marginBottom: "16px", color: "#111" }}>
+          Skills
+        </h2>
+        <div>
+          {skills.map((skill) => (
+            <SkillBadge key={skill} skill={skill} />
+          ))}
+        </div>
+      </section>
 
-
-        />
-      </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "20px",
-        }}
-      >
-        <Card
-          title="Personal Blog"
-          description="A blog built with Next.js where I document my learning journey as a developer."
-        />
-        <Card
-          title="Task Manager"
-          description="A full-stack task management app with login, create, and delete features."
-        />
-        <Card
-          title="Portfolio Site"
-          description="This portfolio website built with Next.js, showing my skills and projects."
-        />
-      </div>{" "}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "20px",
-        }}
-      >
-        <Card
-          title="Personal Blog"
-          description="A blog built with Next.js where I document my learning journey as a developer."
-        />
-        <Card
-          title="Task Manager"
-          description="A full-stack task management app with login, create, and delete features."
-        />
-        <Card
-          title="Portfolio Site"
-          description="This portfolio website built with Next.js, showing my skills and projects."
-        />
-      </div>
+      {/* Projects Section */}
+      <section>
+        <h2 style={{ fontSize: "24px", marginBottom: "20px", color: "#111" }}>
+          Projects
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: "20px",
+          }}
+        >
+          {projects.map((project) => (
+            <Card
+              key={project.id}
+              title={project.title}
+              description={project.description}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
-}
+};
 
 export default Home;
