@@ -23,11 +23,50 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body style={{ margin: "0", fontFamily: "Arial, sans-serif" }}>
+        <header
+          style={{
+            backgroundColor: "#111",
+            color: "white",
+            padding: "16px 40px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span style={{ fontSize: "20px", fontWeight: "bold" }}>
+            Rahul Dev
+          </span>
+          <nav style={{ display: "flex", gap: "24px" }}>
+            <a href="/" style={{ color: "white", textDecoration: "none" }}>
+              Home
+            </a>
+            <a href="/about" style={{ color: "white", textDecoration: "none" }}>
+              About
+            </a>
+            <a href="/blog" style={{ color: "white", textDecoration: "none" }}>
+              Blog
+            </a>
+          </nav>
+        </header>
+
+        <main style={{ padding: "40px", maxWidth: "800px", margin: "0 auto" }}>
+          {children}
+        </main>
+
+        <footer
+          style={{
+            textAlign: "center",
+            padding: "20px",
+            color: "#666",
+            borderTop: "1px solid #eee",
+            marginTop: "40px",
+          }}
+        >
+          Built with Next.js — Sahil Thakur 2026
+        </footer>
+      </body>
     </html>
   );
 }
