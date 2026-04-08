@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Navbar from "@/app/components/Navbar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ margin: "0", fontFamily: "Arial, sans-serif" }}>
-        <header
+        {/* <header
           style={{
             backgroundColor: "#111",
             color: "white",
@@ -49,8 +49,8 @@ export default function RootLayout({
               Blog
             </a>
           </nav>
-        </header>
-
+        </header> */}
+        <Navbar />
         <main style={{ padding: "40px", maxWidth: "800px", margin: "0 auto" }}>
           {children}
         </main>

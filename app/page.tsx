@@ -1,5 +1,6 @@
 import React from 'react'
-
+import Card from "@/app/components/Card"
+import Button from "@/app/components/Button"
 const Home = () => {
    const today = new Date();
    const dateString = today.toLocaleDateString("en-IN", {
@@ -17,7 +18,6 @@ const Home = () => {
         Full-stack developer in training — learning Next.js to get a job
       </p>
       <p style={{ color: "#888" }}>Today is {dateString}</p>
-
       <div
         style={{
           backgroundColor: "#f0f7ff",
@@ -43,6 +43,59 @@ const Home = () => {
           </a>{" "}
           to know more.
         </p>
+      </div>
+      <div style={{ marginTop: "20px", display: "flex", gap: "12px" }}>
+        <Button
+          label="View My Blog"
+
+          color={"red"}
+        />
+        <Button
+          label="Contact Me"
+          color="#111"
+
+
+        />
+      </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "20px",
+        }}
+      >
+        <Card
+          title="Personal Blog"
+          description="A blog built with Next.js where I document my learning journey as a developer."
+        />
+        <Card
+          title="Task Manager"
+          description="A full-stack task management app with login, create, and delete features."
+        />
+        <Card
+          title="Portfolio Site"
+          description="This portfolio website built with Next.js, showing my skills and projects."
+        />
+      </div>{" "}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "20px",
+        }}
+      >
+        <Card
+          title="Personal Blog"
+          description="A blog built with Next.js where I document my learning journey as a developer."
+        />
+        <Card
+          title="Task Manager"
+          description="A full-stack task management app with login, create, and delete features."
+        />
+        <Card
+          title="Portfolio Site"
+          description="This portfolio website built with Next.js, showing my skills and projects."
+        />
       </div>
     </div>
   );
