@@ -1,7 +1,8 @@
-import React from "react";
+
 import Card from "@/app/components/Card";
 import Button from "@/app/components/Button";
 import SkillBadge from "@/app/components/SkillBadge";
+import LikeButton from "@/app/components/LikeButton"
 const Home = () => {
   const today = new Date();
   const dateString = today.toLocaleDateString("en-IN", {
@@ -117,6 +118,14 @@ const Home = () => {
             />
           ))}
         </div>
+      </section>
+
+      {/* Server Component page using a Client Component — this is the pattern */}
+      <section style={{ borderTop: "1px solid #eee", paddingTop: "32px" }}>
+        <p style={{ color: "#666", marginBottom: "12px" }}>
+          Did you find this portfolio helpful?
+        </p>
+        <LikeButton articleTitle={"Sahil Thakur's Portfolio"} />
       </section>
     </div>
   );
