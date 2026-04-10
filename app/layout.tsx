@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
+import ThemeToggle from "@/app/components/ThemeToggle";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,31 +26,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ margin: "0", fontFamily: "Arial, sans-serif" }}>
-        {/* <header
-          style={{
-            backgroundColor: "#111",
-            color: "white",
-            padding: "16px 40px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <span style={{ fontSize: "20px", fontWeight: "bold" }}>
-            Rahul Dev
-          </span>
-          <nav style={{ display: "flex", gap: "24px" }}>
-            <a href="/" style={{ color: "white", textDecoration: "none" }}>
-              Home
-            </a>
-            <a href="/about" style={{ color: "white", textDecoration: "none" }}>
-              About
-            </a>
-            <a href="/blog" style={{ color: "white", textDecoration: "none" }}>
-              Blog
-            </a>
-          </nav>
-        </header> */}
         <Navbar />
         <main style={{ padding: "40px", maxWidth: "800px", margin: "0 auto" }}>
           {children}
@@ -66,6 +42,7 @@ export default function RootLayout({
         >
           Built with Next.js — Sahil Thakur 2026
         </footer>
+        <ThemeToggle />
       </body>
     </html>
   );
